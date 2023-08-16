@@ -65,3 +65,20 @@ As a trainee
 In order to start a conversation as a DFA trainee Software Engineer
 I want to reply to a peep from another trainee.
 ```
+-----------------------------------------------------------------------------
+
+Planning:
+
+Presentation:
+- Should display an array of peeps on the homepage
+- Array of peeps should display in reverse chronological order
+- Each peep should display name, user handle, time of creation
+- Should be displayed nicely, using bootstrap, header and footer
+- Provide a sign in/sign up page
+
+Data:
+- Should store all peeps in a collection
+- Should store all users in a collection
+- Should be able to pass array of peeps + user to frontend to display
+- Should be able to receive post of new peeps and users
+- Each peep and user should have a unique id 
