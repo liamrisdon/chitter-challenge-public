@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "description": "backend",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "test",
+    "build": "nodemon index.js",
+    "start": "NODE_ENV=dev nodemon index.js",
+    "test": "NODE_ENV=test nodemon index.js",
     "c8-coverage": "NODE_ENV=test c8 npm test"
   },
   "author": "Liam Risdon",
