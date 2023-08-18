@@ -1,6 +1,6 @@
 import { getUsers } from "../services/users.service.js";
 
-export const getUsers = async (req, res) => {
+export const getAllUsers = async (req, res) => {
 
     try {
         const users = await getUsers();
