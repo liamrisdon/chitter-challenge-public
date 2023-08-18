@@ -1,5 +1,5 @@
 const mockData = {
-    "testPeeps": [
+    testPeeps: [
         {
             "username": "testUsername",
             "name": "testName",
@@ -13,15 +13,43 @@ const mockData = {
             "content": "this is a second test peep!",
             "dateCreated": "17/08/2023"
         }
-    ]
+    ],
 
+    testUsers: [
+        {
+            "username": "testUsername",
+            "name": "testName",
+            "email": "test@testmail.com",
+            "password": "test1234"
+        },
+
+        {
+            "username": "testUsername2",
+            "name": "testName2",
+            "email": "test2@testmail.com",
+            "password": "test123456"
+        }
+    ],
+
+    testNewPeep: {
+
+        "username": "testNewUsername",
+        "name": "testNewName",
+        "content": "this is a test new peep!",
+        "dateCreated": "17/08/2023"
+
+    },
+
+    testErrorUser: {
+
+        "username": "testErrorUsername",
+        "email": "testerror@testmail.com",
+        "password": "test1234error"
+
+
+    }
 }
 
-// "testUser": {
-//     "username": "testUsername",
-//     "name": "testName",
-//     "email": "test@testmail.com",
-//     "password": "test1234"
-// }
+
 
 export default mockData;

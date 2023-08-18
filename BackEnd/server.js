@@ -2,8 +2,11 @@ import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import cors from "cors";
+// import bodyParser from "body-parser";
 
 import { peepHomeRouter } from "./routes/peepHomeRouter.js";
+import { signUpRouter } from "./routes/signUpRouter.js";
+import { loginRouter } from "./routes/loginRoute.js";
 
 const app = express();
 
@@ -14,8 +17,12 @@ const host = process.env.HOST;
 
 
 app.use(express.json());
-app.use(cors())
+// app.use(bodyParser.json())
+app.use(cors());
 app.use('/', peepHomeRouter);
+app.use('/signup', signUpRouter);
+app.use('/login', loginRouter);
+
 
 
 const main = async () => {

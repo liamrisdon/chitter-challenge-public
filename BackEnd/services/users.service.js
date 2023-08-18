@@ -10,3 +10,15 @@ export const getUsers = async () => {
     }
 
 }
+
+export const newUserService = async (newUser) => {
+
+    try {
+        const addUser = new User(newUser);
+        return await addUser.save();
+    }
+    catch (e) {
+        console.log("error saving user: ", e);
+        throw e;
+    }
+}

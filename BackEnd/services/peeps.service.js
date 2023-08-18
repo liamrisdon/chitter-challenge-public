@@ -10,3 +10,15 @@ export const getPeeps = async () => {
     }
 
 }
+
+export const newPeepService = async (newPeep) => {
+
+    try {
+        const addPeep = new Peep(newPeep);
+        return await addPeep.save();
+    }
+    catch (e) {
+        throw e;
+    }
+
+}
