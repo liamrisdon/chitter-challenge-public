@@ -82,3 +82,6 @@ Data:
 - Should be able to pass array of peeps + user to frontend to display
 - Should be able to receive post of new peeps and users
 - Each peep and user should have a unique id 
+
+
+Need to add authentication/verification!
