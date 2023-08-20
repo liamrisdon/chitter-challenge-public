@@ -51,3 +51,9 @@
 .footer-text {
   text-align: center;
 }
+
+.navbar-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

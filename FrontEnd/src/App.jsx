@@ -44,10 +44,29 @@ function App() {
     console.log("Logged in: " + loggedIn);
   })
 
+  useEffect(() => {
+    const storedLoggedIn = localStorage.getItem('loggedIn');
+    const storedLoggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+
+    if (storedLoggedIn) {
+      setLoggedIn(true);
+      setLoggedInUser(storedLoggedInUser);
+    }
+  }, []);
+
   const handleAuthentication = (user) => {
     setLoggedIn(true);
-    setLoggedInUser(user)
+    setLoggedInUser(user);
+    localStorage.setItem("loggedIn", "true");
+    localStorage.setItem("loggedInUser", JSON.stringify(user));
   }
+
+  const handleLogout = () => {
+    setLoggedIn(false);
+    setLoggedInUser(null);
+    localStorage.removeItem("loggedIn");
+    localStorage.removeItem("loggedInUser");
+  };
 
   const handleModalClose = () => {
     setError({ ...error, modalShown: true });
@@ -58,7 +77,7 @@ function App() {
       {error.type && !error.modalShown && <Modal handleClose={handleModalClose} message={error.message} />}
       {createUpdateStatus && <Modal handleClose={() => setCreatedUpdateStatus(``)} message={createUpdateStatus} />}
       <div className="container">
-        <Header setLogin={setLoggedIn} username={loggedInUser ? loggedInUser.username : ""} />
+        <Header setLogin={setLoggedIn} setLogout={handleLogout} username={loggedInUser ? loggedInUser.username : ""} />
 
         <Routes>
           <Route path="/" element={<PeepHomePage loggedInUser={loggedInUser} data={{ peeps, error: error.message }} />} />

@@ -1,11 +1,11 @@
 import { NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
 
-const Header = ({ setLogin, username }) => {
+const Header = ({ setLogin, username, setLogout }) => {
 
     const handleLogout = () => {
         setLogin(false);
-        window.location.reload();
+        setLogout();
     }
 
 
@@ -27,7 +27,7 @@ const Header = ({ setLogin, username }) => {
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNav">
-                    <ul className="navbar-nav ml-auto">
+                    <ul className="navbar-nav ml-auto text-center">
                         {username && (
                             <li className="nav-item">
                                 <span className="nav-link">Hello, {username}</span>
@@ -68,7 +68,8 @@ const Header = ({ setLogin, username }) => {
 
 Header.propTypes = {
     setLogin: PropTypes.func,
-    username: PropTypes.string
+    username: PropTypes.string,
+    setLogout: PropTypes.func
 }
 
 export default Header;
