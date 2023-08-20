@@ -24,7 +24,7 @@ const NewPeep = ({ user: username, name }) => {
         }
     }
 
-        // const [submitted, setSubmitted] = useState(false);
+    // const [submitted, setSubmitted] = useState(false);
 
     // UseEffect(() => {
     //     if (submitted) navigate("/");
@@ -32,19 +32,24 @@ const NewPeep = ({ user: username, name }) => {
 
     return (
 
-        <div>
-            <h2>Post a new Peep to the Shouty Box!</h2>
-            <h3 className="name">{name}</h3>
-            <h3 className="username">{username}</h3>
-            <form onSubmit={postNewPeep}>
-
-                <label>Type Peep message here...</label>
-                <textarea value={peepContent} onChange={e => setPeepContent(e.target.value)}></textarea>
-                <input type="submit" value="submit" />
-
-            </form>
+        <div className="card mb-3">
+            <div className="card-body">
+                <h5 className="card-title">Post a new Peep to the Shouty Box!</h5>
+                <h6 className="card-subtitle mb-2 text-muted">{name}, {username}</h6>
+                <form onSubmit={postNewPeep}>
+                    <div className="form-group">
+                        <label htmlFor="peepContent">Type Peep message here...</label>
+                        <textarea
+                            className="form-control"
+                            id="peepContent"
+                            value={peepContent}
+                            onChange={(e) => setPeepContent(e.target.value)}
+                        />
+                    </div>
+                    <button type="submit" className="btn btn-primary">Submit</button>
+                </form>
+            </div>
         </div>
-
     )
 }
 

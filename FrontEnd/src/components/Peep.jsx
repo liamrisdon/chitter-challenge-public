@@ -7,10 +7,13 @@ const Peep = ({ peep }) => {
     const peepDateCreated = new Date(dateCreated).toUTCString();
 
     return (
-        <div className="peepcard">
-            <p>User: {name}, {username}</p>
-            <p>{peepDateCreated}</p>
-            <p>Said... {content}</p>
+        <div className="card mb-3">
+            <div className="card-body">
+                <h5 className="card-title">User: {username}, {name}</h5>
+                <p className="card-text">{peepDateCreated}</p>
+                <p className="card-text">Said... {content}</p>
+            </div>
+
         </div>
     )
 }

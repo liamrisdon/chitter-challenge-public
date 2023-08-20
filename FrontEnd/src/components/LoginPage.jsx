@@ -34,29 +34,57 @@ const LoginPage = ({ loggedInUser, handleAuthentication }) => {
 
     return (
 
-        <div>
-            <h2>Login here...</h2>
-            <div className="LoginCard">
-                {loggedInUser && loggedInUser.username && (<h5> Hello, {loggedInUser.username}</h5>)}
+        <div className="container mt-4">
+            <h2 className="mb-4">Login here...</h2>
+            <div className="card p-4">
+                {loggedInUser && loggedInUser.username && (
+                    <h5>Hello, {loggedInUser.username}</h5>
+                )}
                 {!loggedInUser && (
                     <form>
-                        <div>
-                            <label htmlFor="username">Username:</label><input type="text" name="username" id="username" placeholder="username" value={user.username} onChange={handleChange} />
+                        <div className="form-group">
+                            <label htmlFor="username">Username:</label>
+                            <input
+                                type="text"
+                                name="username"
+                                id="username"
+                                className="form-control"
+                                placeholder="Username"
+                                value={user.username}
+                                onChange={handleChange}
+                            />
                         </div>
-                        <div>
-                            <label htmlFor="password">Password:</label><input type="password" name="password" id="password" placeholder="password" value={user.password} onChange={handleChange} />
+                        <div className="form-group">
+                            <label htmlFor="password">Password:</label>
+                            <input
+                                type="password"
+                                name="password"
+                                id="password"
+                                className="form-control"
+                                placeholder="Password"
+                                value={user.password}
+                                onChange={handleChange}
+                            />
                         </div>
-                        <div>
-                            <input className="button" type="submit" value="login" onClick={loginHandler} />
+                        <div className="form-group">
+                            <button
+                                className="btn btn-primary"
+                                type="submit"
+                                onClick={loginHandler}
+                            >
+                                Login
+                            </button>
                         </div>
                     </form>
                 )}
             </div>
-            <p>Not signed up yet? <Link to="/signup">Click here to sign up!</Link></p>
+            <p className="mt-3">
+                Not signed up yet? <Link to="/signup">Click here to sign up!</Link>
+            </p>
         </div>
 
-    )
-}
+    );
+};
 
 LoginPage.propTypes = {
     "handleAuthentication": PropTypes.func.isRequired,

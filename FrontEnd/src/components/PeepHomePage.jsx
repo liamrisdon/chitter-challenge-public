@@ -10,7 +10,7 @@ const PeepHomePage = ({ data, loggedInUser }) => {
 
     return (
         <>
-            <div>
+            <div className="container">
                 {loggedInUser && (<NewPeep user={loggedInUser.username} name={loggedInUser.name} />)}
                 <ShoutyBox peeps={{ peeps, error }} />
             </div>

@@ -42,29 +42,70 @@ const SignUpPage = ({ handleAuthentication }) => {
 
 
     return (
-        <div>
-            <h2>Sign Up...</h2>
-            <div className="SignUpCard">
-                {successMessage !== null && <p className="success-message">Successfully signed in!</p>}
+
+        <div className="container mt-4">
+            <h2 className="mb-4">Sign Up...</h2>
+            <div className="card p-4">
+                {successMessage && (
+                    <div className="text-success mb-3">
+                        {successMessage}
+                    </div>
+                )}
                 <form onSubmit={signUpHandler}>
-                    <div>
-                        <label htmlFor="username">Username:</label><input type="text" name="username" id="username" value={newUser.username} onChange={handleChange} />
+                    <div className="form-group">
+                        <label htmlFor="username">Username:</label>
+                        <input
+                            type="text"
+                            name="username"
+                            id="username"
+                            className="form-control"
+                            value={newUser.username}
+                            onChange={handleChange}
+                        />
                     </div>
-                    <div>
-                        <label htmlFor="name">Name:</label><input type="text" name="name" id="name" value={newUser.name} onChange={handleChange} />
+                    <div className="form-group">
+                        <label htmlFor="name">Name:</label>
+                        <input
+                            type="text"
+                            name="name"
+                            id="name"
+                            className="form-control"
+                            value={newUser.name}
+                            onChange={handleChange}
+                        />
                     </div>
-                    <div>
-                        <label htmlFor="email">Email:</label><input type="email" name="email" id="email" value={newUser.email} onChange={handleChange} />
+                    <div className="form-group">
+                        <label htmlFor="email">Email:</label>
+                        <input
+                            type="email"
+                            name="email"
+                            id="email"
+                            className="form-control"
+                            value={newUser.email}
+                            onChange={handleChange}
+                        />
                     </div>
-                    <div>
-                        <label htmlFor="password">Password:</label><input type="password" name="password" id="password" value={newUser.password} onChange={handleChange} />
+                    <div className="form-group">
+                        <label htmlFor="password">Password:</label>
+                        <input
+                            type="password"
+                            name="password"
+                            id="password"
+                            className="form-control"
+                            value={newUser.password}
+                            onChange={handleChange}
+                        />
                     </div>
-                    <div>
-                        <input type="submit" value="Sign Up" />
+                    <div className="form-group">
+                        <button className="btn btn-primary" type="submit">
+                            Sign Up
+                        </button>
                     </div>
                 </form>
             </div>
-            <p>Already a user? <Link to="/login">Click here to login!</Link></p>
+            <p className="mt-3">
+                Already a user? <Link to="/login">Click here to login!</Link>
+            </p>
         </div>
 
     )

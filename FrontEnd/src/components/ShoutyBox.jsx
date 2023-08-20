@@ -39,12 +39,16 @@ const ShoutyBox = ({ peeps }) => {
     }
 
     return (
-        <>
-            <h2>Shouty Box!</h2>
-            <div>
-                {populatePeeps()}
+        <div className="container-fluid mt-3">
+            <div className="row justify-content-center">
+                <div className="col-md-18">
+                    <div className="card p-4">
+                        <h2 className="mb-4">Shouty Box!</h2>
+                        {populatePeeps()}
+                    </div>
+                </div>
             </div>
-        </>
+        </div>
     )
 
 }
