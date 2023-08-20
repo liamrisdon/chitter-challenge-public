@@ -85,3 +85,5 @@ Data:
 
 
 Need to add authentication/verification!
+Need to fix that when the page is refreshed, then the user is logged out
+Need to add styling!
