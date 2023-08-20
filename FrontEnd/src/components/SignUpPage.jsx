@@ -7,6 +7,7 @@ const SignUpPage = ({ handleAuthentication }) => {
 
     const [newUser, setNewUser] = useState({ username: "", name: "", email: "", password: "" })
     const [successMessage, setSuccessMessage] = useState("");
+    const [errorMessage, setErrorMessage] = useState("");
 
 
 
@@ -18,25 +19,33 @@ const SignUpPage = ({ handleAuthentication }) => {
         });
     }
 
-
     const signUpHandler = async (e) => {
         e.preventDefault();
 
-        const res = await axios.post(`${import.meta.env.VITE_CHITTERURL}/signup`, newUser);
-        console.log(res.data.newUser);
+        try {
+            const res = await axios.post(`${import.meta.env.VITE_CHITTERURL}/signup`, newUser);
 
-        if (res.data) {
-            console.log("User successfully signed up!")
-            setSuccessMessage("User successfully signed up!")
-            setNewUser({
-                username: "",
-                name: "",
-                email: "",
-                password: ""
-            })
-            handleAuthentication(res.data.newUser);
-        } else {
-            setSuccessMessage(null);
+            console.log("Response from server:", res.data);
+
+            if (res.data.message === 'Registration successful') {
+                setSuccessMessage("User successfully signed up!");
+                setErrorMessage("");
+                setNewUser({
+                    username: "",
+                    name: "",
+                    email: "",
+                    password: ""
+                });
+                console.log(newUser);
+                handleAuthentication(newUser);
+            } else {
+                setSuccessMessage("");
+                setErrorMessage(res.data.message)
+            }
+        } catch (error) {
+            console.error("Error signing up:", error);
+            setSuccessMessage("");
+            setErrorMessage("An error occurred during signup.");
         }
     }
 
@@ -49,6 +58,11 @@ const SignUpPage = ({ handleAuthentication }) => {
                 {successMessage && (
                     <div className="text-success mb-3">
                         {successMessage}
+                    </div>
+                )}
+                {errorMessage && (
+                    <div className="text-danger mb-3">
+                        {errorMessage}
                     </div>
                 )}
                 <form onSubmit={signUpHandler}>

@@ -46,16 +46,22 @@ function App() {
 
   useEffect(() => {
     const storedLoggedIn = localStorage.getItem('loggedIn');
-    const storedLoggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+    const storedLoggedInUser = localStorage.getItem('loggedInUser');
 
-    if (storedLoggedIn) {
+    if (storedLoggedIn && storedLoggedInUser) {
       setLoggedIn(true);
-      setLoggedInUser(storedLoggedInUser);
+      try {
+        const parsedLoggedInUser = JSON.parse(storedLoggedInUser);
+        setLoggedInUser(parsedLoggedInUser);
+      } catch (error) {
+        console.error('Error parsing loggedInUser data:', error);
+      }
     }
   }, []);
 
   const handleAuthentication = (user) => {
     setLoggedIn(true);
+    console.log(user);
     setLoggedInUser(user);
     localStorage.setItem("loggedIn", "true");
     localStorage.setItem("loggedInUser", JSON.stringify(user));
