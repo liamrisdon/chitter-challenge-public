@@ -53,6 +53,7 @@ const ShoutyBox = ({ peeps }) => {
 
 }
 
+//fix these, some are unnecessary
 
 ShoutyBox.propTypes = {
     peeps: PropTypes.shape({

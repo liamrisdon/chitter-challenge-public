@@ -9,11 +9,11 @@ export const getPeeps = async () => {
     catch (e) {
         return {
             peeps: [],
-            status: e.response?.status ?? 204,
+            status: e.response?.status || 204,
             error: {
                 type: "get"
             },
-            message: `Data not available from server: ${e.message ?? e.response.message}`
+            message: `Data not available from server: ${e.message || e.response.message}`
         }
     }
 }

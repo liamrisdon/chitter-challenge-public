@@ -85,5 +85,13 @@ Data:
 
 
 Need to add authentication/verification!
+^could be better
 Need to add more styling!
 Need to test!
+
+
+Reflection:
+The styling could be improved;
+There is poor test coverage - ran out of time, will have to revisit.
+Should put all API calls into API call file.
+Could handle authentication better, only renders a generic error message if sign up is tried with an existing username or email.
