@@ -15,21 +15,20 @@ const mockData = {
         }
     ],
 
-    testUsers: [
-        {
-            "username": "testUsername",
-            "name": "testName",
-            "email": "test@testmail.com",
-            "password": "test1234"
-        },
+    testUser:
+    {
+        "username": "testUsername",
+        "name": "testName",
+        "email": "test@testmail.com",
+        "password": "test1234"
+    },
 
-        {
-            "username": "testUsername2",
-            "name": "testName2",
-            "email": "test2@testmail.com",
-            "password": "test123456"
-        }
-    ],
+    // {
+    //     "username": "testUsername2",
+    //     "name": "testName2",
+    //     "email": "test2@testmail.com",
+    //     "password": "test123456"
+    // }
 
     testNewPeep: {
 
